@@ -10,14 +10,14 @@ public class HotelController{
 		return ResponseEntity.status(HttpStatus.CREATED).body(hotelNew);
 	}	
  
-	
 	//get single Hotel
 	@GetMapping("/{hotelId}")
 	public ResponseEntity<Hotel> getSingleHotel(@PathVariable String hotelId){
 		List<Hotel> allHotel = HotelService.getHotel(hotelId);
 		return ResponseEntity.ok(allHotel);
 	}
-		//get single Hotel
+	
+	//get single Hotel
 	@GetMapping
 	public ResponseEntity<Hotel> getSingleHotel(){
 		List<Hotel> allHotel = HotelService.getAllHotel();
