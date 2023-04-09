@@ -1,0 +1,19 @@
+@RestController
+@RequestMapping("/hotels")
+public class HotelController{
+	@AutoWired
+	private HotelService HotelService;
+	//create
+	public ResponseEntity<Hotel> createHotel(@RequestBody hotel Hotel){
+		Hotel hotelNew = hotelService.saveHotel(hotel);
+		return ResponseEntity.status(HttpStatus.CREATED).body(hotelNew);
+}	
+ 
+	
+	//get single Hotel
+@GetMapping("/{hotelId}")
+public ResponseEntity<Hotel> getSingleHotel(@PathVariable String hotelid){
+	List<Hotel> allHotel = HotelService.getAllHotel();
+	return ResponseEntity.ok(allHotel);
+}
+}
