@@ -22,9 +22,17 @@ public class RatingServiceImpl implements RatingService{
 	}
 
 	@Override
-	public Rating getRatingByUserId(String userId){
+	public List<Rating> getRatingByUserId(String userId){
 		return repository.findBy(userId).orElseThrow(()->new ResourceNotFoundException("Rating Not Found with"+HotelID));
 	}
 
+	@Override
+	public Rating updateRating(String ratingId,Rating rating){
+		return repository.updateRating(rating)
+	}
 
+	@Override
+	public void deleteRating(String ratingId){
+		 repository.deleteById(ratingId);
+	}
 }

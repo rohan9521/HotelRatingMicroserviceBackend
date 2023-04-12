@@ -8,5 +8,5 @@ public class User{
     private String name;
     private String location;
     private String about;
-
+    private Rating rating;
 }

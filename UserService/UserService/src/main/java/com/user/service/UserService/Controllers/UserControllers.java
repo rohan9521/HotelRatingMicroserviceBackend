@@ -8,10 +8,8 @@ public class UserController{
 	public ResponseEntity<User> createUser(@RequestBody User user){
 		User userNew = userService.saveUser(user);
 		return ResponseEntity.status(HttpStatus.CREATEDy).body(userNew);
-}	
- 
-	
-	//get single user
+}
+//get single user
 @GetMapping("/{userId}")
 public ResponseEntity<User> getSingleUser(@PathVariable String UserId){
 	User retireivedUser = userService.getUser(userId);

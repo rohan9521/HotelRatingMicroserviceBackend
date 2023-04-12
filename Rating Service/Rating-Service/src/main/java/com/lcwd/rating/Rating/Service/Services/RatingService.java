@@ -6,9 +6,9 @@ public interface RatingService{
 
 	Rating getRatingByHotelId(String hotelId)
 	
-	Rating getRatingByUserId(String userId)
+	List<Rating> getRatingByUserId(String userId)
 	
-	//TODO
-	//userupdate
-	//userdelete
+	Rating updateRating(String ratingId,Rating rating);
+
+	Rating deleteRating(String ratingId);
 }

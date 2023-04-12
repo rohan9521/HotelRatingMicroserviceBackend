@@ -21,9 +21,27 @@ public class RatingController{
 		Rating ratingByHotel = ratingService.getRatingByHotelId(hotelId);
 		return ResponseEntity.ok(ratingByHotel);
 	}
+
 	@GetMapping("/users/{userId}")
-	public ResponseEntity<Rating> getRatingByUserId(@PathVariable String userId){
-		Rating ratingByUser = ratingService.getRatingByUserId(userId);
+	public ResponseEntity<List<Rating>> getRatingByUserId(@PathVariable String userId){
+		List<Rating> ratingByUserList = ratingService.getRatingByUserId(userId);
 		return ResponseEntity.ok(ratingByUser);
+	}
+
+	@PutMapping("/{ratingId}")
+	public ResponseEntity<Rating> updateRating(@PathVariable Rating ratingId,Rating rating){
+		Rating rating = ratingService.updateRating(ratingid,rating);
+		return ResponseEntity.ok(rating);
+	}
+
+	@DeleteMapping("/{ratingId}")
+	public ResponseEntity<boolean> deleteRating(@PathVariable Rating ratingId){
+		try{
+			ratingService.deleteRating(ratingid);
+			return ResponseEntity.ok(true);
+		}catch(Exception e){
+			return ResponseEntity.badRequest(false).body(e.message);
+		}
+	
 	}
 }
