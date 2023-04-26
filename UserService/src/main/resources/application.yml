@@ -1,0 +1,105 @@
+server:
+  port: 8083
+##
+spring:
+ cloud:
+  gcp:
+   sql:
+    instance-connection-name: alien-marking-384120:us-central1:hotelratinguserservice
+    database-name: User
+    credentials:
+     encoded-key:
+           location:
+            classpath: alien-marking-384120-7d20db9b3cee.json
+## datasource:
+##  driver-class-name: com.mysql.cj.jdbc.Driver
+##  password: "root"
+##  username: "hotelRating$()"
+##  initialization-mode: always
+#  jpa:
+#   hibernate:
+#    ddl-auto: update
+#   show-sql: true
+
+## application:
+##  name: USER-Service
+###eureka:
+##  instance:
+##    prefer-ip-address:true
+##  client:
+##    fetch-registry:true
+##    register-with-eureka:true
+##    service-url:
+##      defaultZone:http://localhost:8761/eureka
+#
+#spring:
+# application:
+#  name: cloudsql-jpa
+# profiles:
+#  include: gcp
+#---
+#spring:
+# config:
+#  activate:
+#   on-profile: gcp
+# cloud:
+#  gcp:
+#   sql:
+#    enabled: true
+#    instance-connection-name: alien-marking-384120:us-central1:hotelratinguserservice # gradlew clean bootRun --args=""--spring.cloud.gcp.sql.instance-connection-name=(gcloud sql instances describe my-mysql --format='value(connectionName)')""
+#    database-name: User
+# datasource:
+#  url: "jdbc:mysql://google/sql?socketFactory=com.google.cloud.sql.mysql.SocketFactory&cloudSqlInstance=alien-marking-384120:us-central1:hotelratinguserservice"
+#  driver-class-name: com.mysql.cj.jdbc.Driver
+#  username: root
+#  password: hotelRating$()
+# jpa:
+#  database: mysql
+#  hibernate:
+#   ddl-auto: none
+#  show-sql: true
+#  database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+# data:
+#  jpa:
+#   repositories:
+#    bootstrap-mode: default
+# flyway:
+#  enabled: false
+## sql:
+##  init:
+##   mode: always
+##   platform: mysql
+##   encoding: UTF-8
+##   schema-locations: classpath:db/schema.sql
+##   data-locations: classpath:db/data.sql
+#---
+##spring:
+## config:
+##  activate:
+##   on-profile: dev # gradlew clean bootRun --args='--spring.profiles.active=dev'
+##
+## datasource:
+##  driver-class-name: org.h2.Driver
+##  url: jdbc:h2:mem:testdb;database_to_upper=false;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+##  username: sa
+##  password: password
+## h2:
+##  console:
+##   enabled: true
+## flyway:
+##  enabled: false
+## jpa:
+##  database: h2
+##  hibernate:
+##   ddl-auto: create-drop
+##  show-sql: true
+##  properties:
+##   hibernate:
+##    format_sql: true
+##    dialect: org.hibernate.dialect.H2Dialect
+##    use_sql_comments: true
+##  database-platform: org.hibernate.dialect.H2Dialect
+## data:
+##  jpa:
+##   repositories:
+##    bootstrap-mode: default
