@@ -1,0 +1,23 @@
+server:
+ port: 8082
+
+spring:
+ data:
+  mongodb:
+   uri: mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.8.1
+   database: microservices
+ security:
+  user:
+   name: root
+   password: root
+
+ application:
+  name: HOTEL-Service
+#	eureka:
+#		instance:
+#			prefer-ip-address:true
+#		client:
+#			fetch-registry: true
+#			register-with-eureka: true
+#			service-url:
+#				defaultZone: http://localhost:8761/eureka
