@@ -129,3 +129,13 @@ spring:
     user:
       name: root
       password: root
+  application:
+    name: USER-Service
+eureka:
+ instance:
+  prefer-ip-address: true
+ client:
+  fetch-registry: true
+  register-with-eureka: true
+  service-url:
+   defaultZone: http://localhost:8761/eureka
