@@ -3,7 +3,6 @@ package com.user.service.UserService.Services.UserServiceImpl;
 import com.user.service.UserService.Entities.Hotel;
 import com.user.service.UserService.Entities.Rating;
 import com.user.service.UserService.Entities.User;
-import com.user.service.UserService.Exceptions.ResourceNotFoundException;
 import com.user.service.UserService.External.Services.HotelService;
 import com.user.service.UserService.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.user.service.UserService.Repository.UserRepository;
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,6 +26,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User saveUser(User user){
+		System.out.println("Received User "+user.toString());
 		String randomUserId = UUID.randomUUID().toString();
 		user.setUserId(randomUserId);
 		return repository.save(user);
@@ -57,5 +56,15 @@ public class UserServiceImpl implements UserService {
 
 		//user.(ratingListWithHotel);
 		return user;
+	}
+
+	@Override
+	public User findUserByUserName(String email){
+		try {
+			return repository.findUserByEmail(email);
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		return null;
 	}
 }

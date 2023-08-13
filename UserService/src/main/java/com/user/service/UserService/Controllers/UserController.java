@@ -23,16 +23,33 @@ public class UserController {
     }
 
     //get single user
+//    @CircuitBreaker(name = "ratingHotelBreaker", fallbackMethod = "ratingHotelFallback")
     @GetMapping("/{userId}")
     public ResponseEntity<User> getSingleUser(@PathVariable String userId) {
         User retireivedUser = userService.getUser(userId);
         return ResponseEntity.ok(retireivedUser);
     }
+//    public ResponseEntity<User> ratingHotelFallback(String userId, Exception ex) {
+////        logger.info("Fallback is executed because service is down : ", ex.getMessage());
+//
+//        ex.printStackTrace();
+//
+//        User user = User.builder().email("dummy@gmail.com").name("Dummy").about("This user is created dummy because some service is down").userId("141234").build();
+//        return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+//    }
+
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUser() {
         List<User> allUser = userService.getAllUser();
         return ResponseEntity.ok(allUser);
+    }
+
+    @GetMapping("/exists/{email}")
+        public ResponseEntity<User> validateUser(@PathVariable String email){
+        User userFromDb = userService.findUserByUserName(email);
+        System.out.println(email);
+        return ResponseEntity.ok(userFromDb);
     }
 
 }

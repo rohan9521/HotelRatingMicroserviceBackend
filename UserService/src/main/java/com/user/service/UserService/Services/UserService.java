@@ -11,6 +11,8 @@ public interface UserService{
 	List<User> getAllUser();
 
 	User getUser(String userId);
+
+	User findUserByUserName(String userName);
 	
 	//TODO
 	//userupdate

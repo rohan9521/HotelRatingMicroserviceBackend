@@ -18,6 +18,10 @@ spring:
           uri: lb://RATING-Service
           predicates:
             - Path=/ratings/**
+        - id: JWT-Service
+          uri: lb://JWT-Service
+          predicates:
+            - Path=/auth/**
 eureka:
   instance:
     prefer-ip-address: true
