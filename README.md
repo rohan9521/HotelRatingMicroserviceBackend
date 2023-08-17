@@ -1,6 +1,6 @@
 ## HotelRatingMicroserviceBackend
 ![MicroserviceArc](https://github.com/rohan9521/HotelRatingMicroserviceBackend/assets/43091846/12cefe0f-0a18-4932-8c3f-874669949266)
-![ServiceRegistry](https://github.com/rohan9521/HotelRatingMicroserviceBackend/assets/43091846/044410d5-64b6-4a74-8aea-4b8b3d37f774)
+
 
 
 ### Services
@@ -45,6 +45,7 @@
    * It acts as a server where all the services gets registered to as client.
    * Its created using Eureka server.
    * All other services are Eureka client.
+    ![ServiceRegistry](https://github.com/rohan9521/HotelRatingMicroserviceBackend/assets/43091846/044410d5-64b6-4a74-8aea-4b8b3d37f774)
 
 ### Feign-Client and Rest Template
  * Both were used for communication between the services. 
