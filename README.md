@@ -44,7 +44,9 @@
    * Its created using Eureka server.
    * All other services are Eureka client.
 
-### Feign-Client
+### Feign-Client and Rest Template
+ * Both were used for communication between the services. 
 ### Resilience4j
+ * Resilience4j was used for fault tolerance.
 
 
