@@ -3,18 +3,18 @@
 
 ### Services
  * USER-Service
- * * This service is used to manage CRUD operations for user.
+   * This service is used to manage CRUD operations for user.
    * It communicates with RATING-Service and HOTEL-Service using Feign Client and restTemplate.
    * Since one of the service or both the services can be down at any point of time, this service has fault tolerance.
    * Fault Tolerance is implemented using resilience4j.
  * RATING-Service
- * * This service manages CRUD operations for Ratings of a hotel.
+   * This service manages CRUD operations for Ratings of a hotel.
    * MongoDb is used for storage.
  * HOTEL-Service
- * * This service manages CRUD operations for hotels.
+   * This service manages CRUD operations for hotels.
    * MongoDb is used for storage.
  * API-GATEWAY
- * * All the client request goes to the respective service through this gateway.
+   * All the client request goes to the respective service through this gateway.
    * It uses patterns for identifying the requests and then routes to respective service.
    *    - id: USER-Service
           uri: lb://USER-Service
@@ -33,14 +33,14 @@
           predicates:
             - Path=/auth/**
  * Authorization-Service-
- * * It uses Json Web Token for authorization.
+   * It uses Json Web Token for authorization.
    * Internally uses USER-Service for checking if user exists or not.
    * Issues a token to tbe user.
    * Also Validates the token provided by the user. 
  * CONFIG-Service -
  * 
  * SERVICE-Registry -
- * * It acts as a server where all the services gets registered to as client.
+   * It acts as a server where all the services gets registered to as client.
    * Its created using Eureka server.
    * All other services are Eureka client.
 
